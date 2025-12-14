@@ -52,6 +52,10 @@ jobs:
     name: SonarCloud
     runs-on: ubuntu-latest
     needs: [test, lint]
+    env:
+      SONAR_PROJECT_KEY: srdarknighter_3-tier-k8s-deployment
+      SONAR_ORGANIZATION: srdarknighter
+      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -59,8 +63,11 @@ jobs:
 
       - name: SonarCloud Scan
         uses: SonarSource/sonarqube-scan-action@v7.0.0
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          args: >
+              -Dsonar.projectKey=${{ env.SONAR_PROJECT_KEY }}
+              -Dsonar.organization=${{ env.SONAR_ORGANIZATION }}
+              -Dsonar.sources=Application-Code/fe
 
   build:
     name: Build
