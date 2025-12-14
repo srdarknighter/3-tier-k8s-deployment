@@ -42,7 +42,8 @@ jobs:
         with:
           node-version: 20
           cache: npm
-          cache-dependency-path: Application-Code/fe/package-lock.json
+          cache-dependency-path: | 
+                                  Application-Code/fe/package-lock.json
 
       - run: npm ci
       - run: npm run lint
