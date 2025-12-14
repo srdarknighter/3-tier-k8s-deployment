@@ -23,7 +23,7 @@ class App extends Tasks {
                                 value={currentTask}
                                 required={true}
                                 onChange={this.handleChange}
-                                placeholder="Add New task"
+                                placeholder="Add New task 1"
                             />
                             <Button className="add-task-btn" color="primary" variant="outlined" type="submit">
                                 Add Task
