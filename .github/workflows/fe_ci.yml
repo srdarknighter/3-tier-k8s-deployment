@@ -179,7 +179,7 @@ jobs:
       - name: Update image tag
         run: |
           NEW_IMAGE="ghcr.io/${{ github.repository }}-fe:sha-${{ github.sha }}"
-          sed -i "s|image:.*|image: ${NEW_IMAGE}|g" k8s/fe/deployment.yaml
+          sed -i "s|image:.*|image: ${NEW_IMAGE}|g" k8s/fe/deployment.yml
           git add k8s/fe/deployment.yaml
           git commit -m "chore(fe): update image to ${NEW_IMAGE} [skip ci]" || echo "No changes"
           git push
