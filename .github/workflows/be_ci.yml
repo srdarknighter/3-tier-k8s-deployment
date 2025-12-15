@@ -7,6 +7,7 @@ on:
   pull_request:
     paths:
       - 'Application-Code/be/**'
+  workflow_dispatch:
 
 jobs:
   test:
