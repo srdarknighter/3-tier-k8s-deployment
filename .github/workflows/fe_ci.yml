@@ -89,7 +89,11 @@ jobs:
         run: echo "NODE_OPTIONS=--openssl-legacy-provider" >> $GITHUB_ENV    
 
       - run: npm ci
-      - run: npm run build
+      
+      - name: Build FE
+        env:
+          NODE_OPTIONS: --openssl-legacy-provider
+        run: npm run build
 
       - uses: actions/upload-artifact@v4
         with:
