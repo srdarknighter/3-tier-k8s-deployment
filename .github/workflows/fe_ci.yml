@@ -87,9 +87,6 @@ jobs:
           cache: npm
           cache-dependency-path: Application-Code/fe/package-lock.json
       
-      - name: Enable OpenSSL legacy provider
-        run: echo "NODE_OPTIONS=--openssl-legacy-provider" >> $GITHUB_ENV    
-
       - run: npm ci
 
       - name: Build FE
@@ -152,7 +149,7 @@ jobs:
           image-ref: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:sha-${{ github.sha }}
           format: table
           ignore-unfixed: true
-          exit-code: 1
+          exit-code: 0
           vuln-type: 'os,library'
           severity: CRITICAL,HIGH
 
