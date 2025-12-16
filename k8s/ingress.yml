@@ -12,7 +12,7 @@ spec:
   ingressClassName: alb
   rules:
   # - host: <Host>
-    http:
+    - http:
       paths:
       - pathType: Prefix
         path: "/api"
