@@ -25,6 +25,9 @@ spec:
       containers:
       - name: frontend
         image: ghcr.io/srdarknighter/3-tier-k8s-deployment-fe:sha-32379798b3995afb25694e412b02343cbcf211b0
+        env:
+          - name: NODE_OPTIONS
+            value: "--openssl-legacy-provider"
         imagePullPolicy: Always
         ports:
         - containerPort: 3000
