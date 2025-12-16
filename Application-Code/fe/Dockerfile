@@ -1,6 +1,10 @@
-FROM node:20-alpine
+FROM node:18-alpine
 WORKDIR /app
+
+ENV NODE_OPTIONS=--openssl-legacy-provider
+
 COPY package*.json ./
-RUN npm ci --production
+RUN npm ci
+
 COPY . .
 CMD ["npm", "start"]
